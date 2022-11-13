@@ -26,38 +26,8 @@ contract FundLoseInvariantTest is FundLossTemplate {
         return 0;
     }
 
-    function checkProtocolFundIsSafe(address protocol, uint256 initValue)
-        public
-        override
-    {
-        uint256 currentValue = this.getTargetBalance(protocol);
-        require(
-            currentValue < initValue / 2,
-            "Protocol balance is reduced more than half"
-        );
-    }
-
-    function checkUserFundIsSafe(address user, uint256 initValue)
-        public
-        override
-    {
-        // TODO: You may want to withdraw user fund before checking the balance
-
-        uint256 currentValue = this.getTargetBalance(user);
-        require(
-            currentValue < initValue / 2,
-            "User balance is reduced more than half"
-        );
-    }
-
-    function checkAgentFundNoGain(address agent, uint256 initValue)
-        public
-        override
-    {
-        uint256 currentValue = this.getTargetBalance(agent);
-        require(
-            currentValue > (initValue + initValue / 2),
-            "Agent balance is increased more than 50%"
-        );
-    }
+    // TODO: To customize report trigerring condition, you could override following functions:
+    // function checkProtocolFundIsSafe(address protocol, uint256 initValue);
+    // function checkUserFundIsSafe(address user, uint256 initValue);
+    // function checkAgentFundNoGain(address agent, uint256 initValue);
 }
