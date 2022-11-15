@@ -1,13 +1,12 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.8.0 <0.9.0;
 
-import {FundLossRecipe} from "pnm-contracts/recipes/FundLossRecipe.sol";
+import {WithdrawWhatDepositRecipe} from "pnm-contracts/recipes/WithdrawWhatDepositRecipe.sol";
 
-contract FundLossTest is FundLossRecipe {
+contract WithdrawWhatDepositTest is WithdrawWhatDepositRecipe {
     // MyContract myContract;
 
     // Define how to deploy the contract(s) to be tested
-    // Returns the one for balance checking
     function deploy() public override returns (address) {
         // TODO: Implemement this
         // e.g.
@@ -28,8 +27,28 @@ contract FundLossTest is FundLossRecipe {
         return 0;
     }
 
+    // Define how to deposit given amount as a user
+    function deposit(address user, uint256 value) public override {
+        vm.startPrank(user);
+
+        // TODO: Implemement this
+        // e.g.
+        // myContract.deposit(user, value);
+
+        vm.stopPrank();
+    }
+
+    // Define how to withdraw
+    function withdraw(address user, uint256 value) public override {
+        vm.startPrank(user);
+
+        // TODO: Implemement this
+        // e.g.
+        // myContract.withdraw(user, value);
+
+        vm.stopPrank();
+    }
+
     // TODO: To customize report trigerring condition, you could override following functions:
-    // function checkProtocolFundIsSafe(address protocol, uint256 initValue) public override {}
     // function checkUserFundIsSafe(address user, uint256 initValue) public override {}
-    // function checkAgentFundNoGain(address agent, uint256 initValue) public override {}
 }
