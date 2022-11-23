@@ -3,8 +3,6 @@ pragma solidity ^0.8.13;
 
 import {OwnerNotChangedRecipe} from "pnm-contracts/recipes/OwnerNotChangedRecipe.sol";
 
-import "contracts/owner_not_changed/ROIToken.sol";
-
 contract OwnerNotChangedExampleTest is OwnerNotChangedRecipe {
     // MyContract myContract;
 
